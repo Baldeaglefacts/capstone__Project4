@@ -16,5 +16,7 @@ def get_mapbox_map():
 
     country = request.args.get('country')
 
+
+
     return render_template('mapbox_map.html', city=city, country=country, state=state)
 
