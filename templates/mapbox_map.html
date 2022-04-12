@@ -7,22 +7,18 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet'/>
     
-    <!-- webpage title -->
+    <!-- These comments aren't needed. Comments should focus on what is not obvious from the code.  -->
     <title>{{ searchTerm }}</title>
     
-    <!--- imports the mapbox SDK script -->
     <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- the line above introduces bootstrap to the program -->
-
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mapbox_map_style.css') }}">
-    <!-- imports stylesheet -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600" rel="stylesheet">
-    <!-- imports font style -->
+
     
 </head>
 <body>

@@ -5,6 +5,7 @@ from key import youtube_key
 
 '''A program for sending a search request to the YouTube API'''
 
+# needs error handling - can't connect to server, invalid URL, invalid request, response unexpected format...
 
 def youtubeAPI_request(city, state, country):
     api_service_name = "youtube"

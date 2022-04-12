@@ -1,2 +1,6 @@
 __pycache__
 key.py
+
+# ignore your editor directories 
+.idea
+venv
