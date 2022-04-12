@@ -3,6 +3,7 @@ from pprint import pprint
 
 from key import yelp_key
 
+# needs error handling - can't connect to server, invalid URL, invalid request, response unexpected format...
 
 def yelp_call(search_term, city, state, country):
     API_key = yelp_key
@@ -14,22 +15,24 @@ def yelp_call(search_term, city, state, country):
     }
 
     term = search_term
+
+    # both choices in this if statement are the same 
     if state == "":
         location = city
     else:
         location = city
+
     radius = 16090
     limit = 5
 
-    Parameter = {
+    parameters = {      # there's more than one parameter. Python name usually lowercase. 
         'term': term,
         'location': location,
         'radius': radius,
         'limit': limit
-
     }
 
-    response = requests.get(url=url, params=Parameter, headers=headers, )
+    response = requests.get(url=url, params=parameters, headers=headers, )
 
     # convert the json string to dic
     business_data = response.json()

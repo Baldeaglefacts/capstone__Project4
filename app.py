@@ -41,6 +41,9 @@ def get_mapbox_map():
 
         searchTerm = request.args.get('searchTerm')
 
+        # cache code should be moved to another module. This is a long function with a lot of detail and should be 
+        # broken into smaller, simpler functions. 
+        
         try:  # This will test to see if a file containing cache data already exists
             cache_data = open('cache_data.csv')
             cache_reader = csv.reader(cache_data)
@@ -68,6 +71,7 @@ def get_mapbox_map():
         except NameError:
             videoID = None
         if videoID is None:
+            # could this function return a string to make this app.py's life easier? 
             videoID = str(youtubeAPI_request(city, state, country))
         # If the csv file doesn't exist, or there isn't cached data for this search, then videoID won't exist.
         # This tests if videoID was saved from cache or not. If not, is calls the API to make videoID.
@@ -90,8 +94,9 @@ def get_mapbox_map():
     except:
         return render_template('search_error.html')
 
-@app.route('/get_map', methods=['POST'])
-def submit_post():
+
+@app.route('/get_map', methods=['POST'])  # is this the best URL path? 
+def save_place_bookmark():  # be specific with function names 
     name = request.form.get('name')
     rating = request.form.get('rating')
     address = request.form.get('address')
@@ -118,6 +123,7 @@ def bookmark_page():
     except:
         return render_template('search_error.html')
 
+# move cache-related code to a new python file
 def clean_cache():  # Function that deletes old data from the cache
     cleaned_cache = []
     delete_date = datetime.now() - timedelta(days=1)  # Looks for entries that are one day old or older
